@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS planet (
+id VARCHAR(10) CHECK(id ~ '^[A-Z0-9]+$'),
+name VARCHAR(500) NOT NULL,
+PRIMARY KEY (id)
+);
