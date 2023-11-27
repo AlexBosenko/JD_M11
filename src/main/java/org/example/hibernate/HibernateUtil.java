@@ -2,6 +2,7 @@ package org.example.hibernate;
 
 import org.example.entity.Client;
 import org.example.entity.Planet;
+import org.example.entity.Ticket;
 import org.example.properties.PropertyReader;
 import org.flywaydb.core.Flyway;
 import org.hibernate.SessionFactory;
@@ -29,6 +30,7 @@ public class HibernateUtil {
         sessionFactory = new Configuration()
                 .addAnnotatedClass(Client.class)
                 .addAnnotatedClass(Planet.class)
+                .addAnnotatedClass(Ticket.class)
                 .buildSessionFactory();
     }
 
