@@ -3,6 +3,7 @@ package org.example.entity;
 import jakarta.persistence.*;
 
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "ticket")
@@ -24,6 +25,10 @@ public class Ticket {
     @JoinColumn(name="to_planet_id", nullable = false)
     private Planet toPlanetId;
 
+    public Long getId() {
+        return id;
+    }
+
     public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
@@ -42,9 +47,10 @@ public class Ticket {
 
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss z");
         return "Ticket{" +
                 "id=" + id +
-                ", createdAt=" + createdAt +
+                ", createdAt=" + createdAt.format(formatter) +
                 ", client=" + client +
                 ", fromPlanetId=" + fromPlanetId +
                 ", toPlanetId=" + toPlanetId +
